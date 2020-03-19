@@ -4,7 +4,7 @@
   "description": " Politico enables citizens to give their mandate to politicians running for different government offices while building trust in the process through transparency. ",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
+    "test": "npm run drop &&  npm run create && NODE_ENV=test nyc --reporter=html --reporter=text mocha --require @babel/node --timeout 5000 /tests/ --exit",
     "start": "npm run create && babel-node app.js",
     "dev": "npm run drop && npm run create && nodemon --exec babel-node app.js",
     "create": "babel-node server/model/createTables.js createTables",

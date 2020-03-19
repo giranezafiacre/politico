@@ -1,7 +1,6 @@
 
 const checkAdmin = async (req, res, next) => {
     const value = req.tokenData.isAdmin;
-    // console.log(value);
     if (value !== true) {
         return res.status(403).json({
             status: 403,

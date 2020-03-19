@@ -1,5 +1,5 @@
 import express from 'express';
-import OfficeClass from '../Controllers/officeController';
+import OfficeClass from '../controllers/officeController';
 import checkOffice from '../middleware/checkOffice';
 import checkAdmin from '../middleware/checkAdmin';
 import checkToken from '../middleware/checkToken';

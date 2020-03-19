@@ -1,5 +1,5 @@
 import express from 'express';
-import UserClass from '../Controllers/AuthControllers';
+import UserClass from '../controllers/AuthControllers';
 import checkUser from '../middleware/checkUser';
 import checkLogIn from '../middleware/checkLogIn';
 

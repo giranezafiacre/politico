@@ -1,5 +1,5 @@
 import express from 'express';
-import PartyClass from '../Controllers/partyController';
+import PartyClass from '../controllers/partyController';
 import checkParty from '../middleware/checkParty';
 import checkAdmin from '../middleware/checkAdmin';
 import checkToken from '../middleware/checkToken';

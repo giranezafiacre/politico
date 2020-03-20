@@ -4,7 +4,7 @@
   "description": " Politico enables citizens to give their mandate to politicians running for different government offices while building trust in the process through transparency. ",
   "main": "app.js",
   "scripts": {
-    "test": "npm run drop &&  npm run create && NODE_ENV=test nyc --reporter=html --reporter=text mocha --require @babel/node --timeout 5000 /tests/ --exit",
+    "test": "npm run drop && npm run create && nyc --reporter=html --reporter=text mocha --require @babel/register server/test/* --exit",
     "start": "npm run create && babel-node app.js",
     "dev": "npm run drop && npm run create && nodemon --exec babel-node app.js",
     "create": "babel-node server/model/createTables.js createTables",
@@ -30,6 +30,7 @@
     "@babel/register": "^7.8.6",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
+    "coverage": "^0.4.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "joi": "^14.3.1",
@@ -40,9 +41,11 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
-    "mocha": "^7.1.0"
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0"
   }
 }

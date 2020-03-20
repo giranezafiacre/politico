@@ -43,6 +43,8 @@
         "func-names":"off",
         "no-extend-native":"off",
         "import/no-unresolved": "off",
-        "import/no-named-as-default": "off"
+        "import/no-named-as-default": "off",
+        "import/no-extraneous-dependencies":"off",
+        "no-constant-condition":"off"
     }
 }

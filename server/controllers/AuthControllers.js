@@ -10,7 +10,7 @@ class UsersClass {
         const {
             nationalId, firstname, lastname, othername, email, phonenumber, passportUrl, password,
         } = req.body;
-        const selectQuery = 'SELECT * FROM users where nationalId=$1 ;';
+        const selectQuery = 'SELECT * FROM users where nationalId=$1;';
         const value = [nationalId];
         const rows = await query(selectQuery, value);
         if (rows[0]) {
@@ -54,7 +54,6 @@ class UsersClass {
         const rows = await query(selectQuery, value);
         if (rows[0] && checkPassword(password, rows[0].password)) {
             const { id } = rows[0];
-            // console.log(rows[0]);
             const token = generateToken(id, rows[0].nationalId, rows[0].email, rows[0].isadmin);
             return res.status(200).json({
                 status: 200,

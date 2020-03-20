@@ -19,8 +19,7 @@ describe('User SignUp', () => {
                 expect(res.body.data).to.have.property('lastName');
                 expect(res.body.data).to.have.property('email');
                 expect(res.body.data).to.have.property('token');
-                done();
-            });
+            }, done());
     });
     it('Should NOT allow a user to signup: Invalid data', (done) => {
         chai.request(app).post('/auth/signup')
@@ -29,8 +28,7 @@ describe('User SignUp', () => {
                 expect(res).to.have.status(400);
                 expect(res.body).to.have.property('error');
                 expect(res.body.error).to.equal(' nationalId  is not allowed to be empty');
-                done();
-            });
+            }, done());
     });
     it('Should NOT allow a user to signup: user already exist', (done) => {
         chai.request(app).post('/auth/signup')
@@ -39,8 +37,7 @@ describe('User SignUp', () => {
                 expect(res).to.have.status(409);
                 expect(res.body).to.have.property('error');
                 expect(res.body.error).to.equal('user with 4567890123456123 already exists');
-                done();
-            });
+            }, done());
     });
 });
 describe('User Signin', () => {
@@ -52,8 +49,7 @@ describe('User Signin', () => {
                 expect(res.body).to.have.property('message');
                 expect(res.body).to.have.property('data');
                 expect(res.body.data).to.have.property('token');
-                done();
-            });
+            }, done());
     });
     it('Should NOT allow a user to signin: Email not found or incorrect password', (done) => {
         chai.request(app).post('/auth/signin')
@@ -62,8 +58,7 @@ describe('User Signin', () => {
                 expect(res).to.have.status(400);
                 expect(res.body).to.have.property('error');
                 expect(res.body.error).to.equal('Invalid email,nationalId or password');
-                done();
-            });
+            }, done());
     });
     it('Should NOT allow a user to signin: Invalid input or missing input', (done) => {
         chai.request(app).post('/auth/signin')
@@ -72,7 +67,6 @@ describe('User Signin', () => {
                 expect(res).to.have.status(400);
                 expect(res.body).to.have.property('error');
                 expect(res.body.error).to.equal(' password  is not allowed to be empty');
-                done();
-            });
+            }, done());
     });
 });
